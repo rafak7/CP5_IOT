@@ -1,0 +1,68 @@
+[
+    {
+        "id": "mqtt_in_node",
+        "type": "mqtt in",
+        "z": "node-red-flow",
+        "name": "Receber Temperatura",
+        "topic": "sensor/temperatura",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "mqtt_broker",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "function_node"
+            ]
+        ]
+    },
+    {
+        "id": "function_node",
+        "type": "function",
+        "z": "node-red-flow",
+        "name": "Verificar Temperatura",
+        "func": "var temperatura = parseFloat(msg.payload);\n\nif (temperatura > 30) {\n    msg.payload = \"ON\";\n} else {\n    msg.payload = \"OFF\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "mqtt_out_node"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out_node",
+        "type": "mqtt out",
+        "z": "node-red-flow",
+        "name": "Publicar Comando LED",
+        "topic": "led/acionar",
+        "qos": "",
+        "retain": "",
+        "broker": "mqtt_broker",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "node-red",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
