@@ -20,6 +20,7 @@ Este projeto utiliza uma ESP32 conectada a um sensor de temperatura e umidade DH
 
 ## Estrutura de Funcionamento
 
+![](https://raw.githubusercontent.com/rafak7/CP5_IOT/refs/heads/main/Esquema_de_Funcionamento.png)
 
 ## Estrutura de Pastas do Projeto
 
