@@ -18,6 +18,9 @@ Este projeto utiliza uma ESP32 conectada a um sensor de temperatura e umidade DH
 - Node-RED: Processamento dos dados recebidos do HiveMQ e tomada de decisões.
 - Bibliotecas: WiFi, PubSubClient, DHT.
 
+## Estrutura de Funcionamento
+
+
 ## Estrutura de Pastas do Projeto
 
    ```bash
